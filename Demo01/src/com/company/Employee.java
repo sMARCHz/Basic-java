@@ -4,6 +4,7 @@ public class Employee {
     private int id;
     private String fname;
     private String lname;
+    private Department dep;
 
     public Employee() {
         this("?", "?");
