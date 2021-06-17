@@ -1,22 +1,43 @@
 package com.company;
 
-import java.util.ArrayList;
-
 public class MyRange {
+    private String input;
 
-    public static void main(String[] args) {
-        String str = args[0]; // (1,5]
-        int startNumber = Character.getNumericValue(str.charAt(1));
-        int endNumber = Character.getNumericValue(str.charAt(3));
-        if (str.charAt(0) == '(') {
+    public MyRange(String input) {
+        this.input = input;
+    }
+
+    public boolean checkStartWithExclude() {
+        return this.input.startsWith("(");
+    }
+
+    public boolean checkEndWithExclude() {
+        return this.input.endsWith(")");
+    }
+
+    public int getStartNumber() {
+        int startNumber = Character.getNumericValue(input.charAt(1));
+        if(checkStartWithExclude()) {
             startNumber += 1;
         }
-        if (str.charAt(str.length()-1) == ')') {
+        return startNumber;
+    }
+
+    public int getEndNumber() {
+        int endNumber = Character.getNumericValue(input.charAt(3));
+        if(checkEndWithExclude()) {
             endNumber -= 1;
         }
+        return endNumber;
+    }
+
+    public String getResult() {
+        int startNumber = getStartNumber();
+        int endNumber = getEndNumber();
+        String result = "";
         for (int i = startNumber; i < endNumber+1; i++) {
-            System.out.print(i);
-            if(i!=endNumber) System.out.print(",");
+            result += String.valueOf(i);
         }
+        return result;
     }
 }
