@@ -53,4 +53,14 @@ class MySortTest {
         assertEquals(expect, sortedList);
     }
 
+    @Test
+    @DisplayName("Sort with [2,1]")
+    void sortWithTwoNumberCase02() {
+        List<Integer> input = new ArrayList<>(Arrays.asList(2,1));
+        List<Integer> expect = new ArrayList<>(Arrays.asList(1,2));
+
+        MySort mySort = new MySort(input);
+        List<Integer> sortedList = mySort.sort();
+        assertEquals(expect, sortedList);
+    }
 }
