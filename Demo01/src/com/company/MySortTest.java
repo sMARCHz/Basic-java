@@ -107,4 +107,15 @@ class MySortTest {
         List<Integer> sortedList = mySort.sort();
         assertEquals(expect, sortedList);
     }
+
+    @Test
+    @DisplayName("Sort with [5,4,3,2,1]")
+    void sortWithFiveNumber() {
+        List<Integer> input = new ArrayList<>(Arrays.asList(5,4,3,2,1));
+        List<Integer> expect = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+
+        MySort mySort = new MySort(input);
+        List<Integer> sortedList = mySort.sort();
+        assertEquals(expect, sortedList);
+    }
 }
