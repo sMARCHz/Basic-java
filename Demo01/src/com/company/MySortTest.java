@@ -63,4 +63,15 @@ class MySortTest {
         List<Integer> sortedList = mySort.sort();
         assertEquals(expect, sortedList);
     }
+
+    @Test
+    @DisplayName("Sort with [1,2,3]")
+    void sortWithThreeNumberCase01() {
+        List<Integer> input = new ArrayList<>(Arrays.asList(1,2,3));
+        List<Integer> expect = new ArrayList<>(Arrays.asList(1,2,3));
+
+        MySort mySort = new MySort(input);
+        List<Integer> sortedList = mySort.sort();
+        assertEquals(expect, sortedList);
+    }
 }
