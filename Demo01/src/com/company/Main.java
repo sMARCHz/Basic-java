@@ -4,6 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        System.out.println("Hello ...");
+        Employee employee1 = new Employee();
+        String result = employee1.getFullName();
+        System.out.println(result);
     }
 }
