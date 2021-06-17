@@ -7,7 +7,7 @@ public class Employee {
     private Department dep;
 
     public Employee() {
-        this("?", "?");
+        this("", "");
     }
 
     public Employee(String fname, String lname) {
