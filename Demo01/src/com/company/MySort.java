@@ -10,7 +10,7 @@ public class MySort {
     }
 
     public List<Integer> sort() {
-        if (input.size() == 0) {
+        if (input.size() < 2) {
             return input;
         }
         return input;
