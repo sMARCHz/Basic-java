@@ -13,6 +13,15 @@ public class MySort {
         if (input.size() < 2) {
             return input;
         }
+        for (int i = 0; i < input.size(); i++) {
+            for (int j = i+1; j < input.size(); j++) {
+                if(input.get(j) < input.get(i)) {
+                    int temp = input.get(i);
+                    input.set(i, input.get(j));
+                    input.set(j, temp);
+                }
+            }
+        }
         return input;
     }
 }

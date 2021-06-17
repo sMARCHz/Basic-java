@@ -1,5 +1,6 @@
 package com.company;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ class MySortTest {
 //    [3,2,1] => [1,2,3]
 //    [5,4,3,2,1]  [1,2,3,4,5]
     @Test
+    @DisplayName("Sort with Empty list")
     void sortWithBlankList() {
         List<Integer> input = new ArrayList<>();
         List<Integer> expect = new ArrayList<>();
@@ -30,6 +32,7 @@ class MySortTest {
     }
 
     @Test
+    @DisplayName("Sort with one number in the list")
     void sortWithOneNumber() {
         List<Integer> input = new ArrayList<>(Arrays.asList(1));
         List<Integer> expect = new ArrayList<>(Arrays.asList(1));
@@ -38,4 +41,16 @@ class MySortTest {
         List<Integer> sortedList = mySort.sort();
         assertEquals(expect, sortedList);
     }
+
+    @Test
+    @DisplayName("Sort with [1,2]")
+    void sortWithTwoNumberCase01() {
+        List<Integer> input = new ArrayList<>(Arrays.asList(1,2));
+        List<Integer> expect = new ArrayList<>(Arrays.asList(1,2));
+
+        MySort mySort = new MySort(input);
+        List<Integer> sortedList = mySort.sort();
+        assertEquals(expect, sortedList);
+    }
+
 }
