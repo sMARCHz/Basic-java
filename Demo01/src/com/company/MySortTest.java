@@ -96,4 +96,15 @@ class MySortTest {
         List<Integer> sortedList = mySort.sort();
         assertEquals(expect, sortedList);
     }
+
+    @Test
+    @DisplayName("Sort with [3,2,1]")
+    void sortWithThreeNumberCase04() {
+        List<Integer> input = new ArrayList<>(Arrays.asList(3,2,1));
+        List<Integer> expect = new ArrayList<>(Arrays.asList(1,2,3));
+
+        MySort mySort = new MySort(input);
+        List<Integer> sortedList = mySort.sort();
+        assertEquals(expect, sortedList);
+    }
 }
