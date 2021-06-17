@@ -15,12 +15,8 @@ public class MyRange {
             endNumber -= 1;
         }
         for (int i = startNumber; i < endNumber+1; i++) {
-            if (i==endNumber) {
-                System.out.print(i);
-            }
-            else {
-                System.out.print(i + ",");
-            }
+            System.out.print(i);
+            if(i!=endNumber) System.out.print(",");
         }
     }
 }
