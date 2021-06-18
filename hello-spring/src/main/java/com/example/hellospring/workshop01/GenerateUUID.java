@@ -3,7 +3,7 @@ package com.example.hellospring.workshop01;
 import java.util.Random;
 
 public class GenerateUUID {
-    Random random = new Random();
+    IRandom random;
 
     public String get(String name) {
         String id = "";
@@ -12,7 +12,7 @@ public class GenerateUUID {
         return id;
     }
 
-    public void setRandom(Random random) {
+    public void setRandom(IRandom random) {
         this.random = random;
     }
 }
