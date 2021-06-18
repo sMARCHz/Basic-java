@@ -11,9 +11,16 @@ public class FizzBuzz {
         return input%3==0 ? true : false;
     }
 
+    public boolean isBuzz() {
+        return input%5==0 ? true : false;
+    }
+
     public String getResult() {
-        if(isFizz()) {
+        if (isFizz()) {
             return "Fizz";
+        }
+        if (isBuzz()) {
+            return "Buzz";
         }
         return String.valueOf(input);
     }
