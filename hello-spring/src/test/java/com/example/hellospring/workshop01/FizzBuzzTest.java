@@ -51,7 +51,7 @@ class FizzBuzzTest {
     }
 
     @Test
-    void checkNoFizzBuzz() {
+    void checkNoFizzBuzzAsResult() {
         int input = 4;
         FizzBuzz fizzBuzz = new FizzBuzz();
         fizzBuzz.setInput(input);
