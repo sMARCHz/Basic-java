@@ -68,13 +68,13 @@ class FizzBuzzTest {
     }
 
     @Test
-    @DisplayName("7 -> 7")
+    @DisplayName("7 -> KBTG Java Basic")
     void checkFizzBuzzCase07() {
         int input = 7;
         FizzBuzz fizzBuzz = new FizzBuzz();
         fizzBuzz.setInput(input);
         String actualResult = fizzBuzz.getResult();
-        assertEquals("7", actualResult);
+        assertEquals("KBTG Java Basic", actualResult);
     }
 
     @Test

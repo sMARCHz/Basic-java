@@ -1,5 +1,7 @@
 package com.example.hellospring.workshop01;
 
+import java.util.List;
+
 public class FizzBuzz {
     private int input;
 
@@ -7,23 +9,17 @@ public class FizzBuzz {
         this.input = input;
     }
 
-    public boolean isFizz() {
-        return input%3==0 ? true : false;
-    }
-
-    public boolean isBuzz() {
-        return input%5==0 ? true : false;
-    }
-
     public String getResult() {
-        if (isFizz() && isBuzz()) {
-            return "FizzBuzz";
-        }
-        if (isFizz()) {
-            return "Fizz";
-        }
-        if (isBuzz()) {
-            return "Buzz";
+        Condition[] myConditions = new Condition[]{
+                new KBTGCondition(),
+                new FizzBuzzCondition(),
+                new FizzCondition(),
+                new BuzzCondition()
+        };
+        for (Condition myCondition : myConditions) {
+            if(myCondition.isMatchCondition(input)) {
+                return myCondition.result();
+            }
         }
         return String.valueOf(input);
     }
