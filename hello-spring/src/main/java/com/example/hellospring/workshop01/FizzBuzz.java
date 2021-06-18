@@ -16,6 +16,9 @@ public class FizzBuzz {
     }
 
     public String getResult() {
+        if (isFizz() && isBuzz()) {
+            return "FizzBuzz";
+        }
         if (isFizz()) {
             return "Fizz";
         }

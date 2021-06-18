@@ -40,4 +40,22 @@ class FizzBuzzTest {
         String actualResult = fizzBuzz.getResult();
         assertEquals("Buzz", actualResult);
     }
+
+    @Test
+    void checkFizzBuzzAsResult() {
+        int input = 15;
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        fizzBuzz.setInput(input);
+        String actualResult = fizzBuzz.getResult();
+        assertEquals("FizzBuzz", actualResult);
+    }
+
+    @Test
+    void checkNoFizzBuzz() {
+        int input = 4;
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        fizzBuzz.setInput(input);
+        String actualResult = fizzBuzz.getResult();
+        assertEquals("4", actualResult);
+    }
 }
