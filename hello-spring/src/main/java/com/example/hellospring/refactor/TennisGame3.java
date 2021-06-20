@@ -1,8 +1,8 @@
 package com.example.hellospring.refactor;
 
 public class TennisGame3 {
-    private Player player1;
-    private Player player2;
+    private final Player player1;
+    private final Player player2;
 
     public TennisGame3(String player1Name, String player2Name) {
         this.player1 = new Player(player1Name);
