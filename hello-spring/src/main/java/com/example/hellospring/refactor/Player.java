@@ -2,7 +2,7 @@ package com.example.hellospring.refactor;
 
 public class Player {
     private int score = 0;
-    private String name = "";
+    private final String name;
 
     public Player(String name) {
         this.name = name;
