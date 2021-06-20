@@ -17,7 +17,7 @@ public class TennisGame3 {
         return isBothPlayerScoreLessThanFour && isSumOfPlayerScoreNotEqualSix;
     }
 
-    public boolean isScoreEqual() {
+    public boolean isDraw() {
         return player1.getScore() == player2.getScore();
     }
 
@@ -42,14 +42,14 @@ public class TennisGame3 {
         if (isBeforeFirstDeuce()) {
             String player1Call = getCall(player1Score);
             String player2Call = getCall(player2Score);
-            if (isScoreEqual()) {
+            if (isDraw()) {
                 return player1Call + "-All";
             }
             else {
                 return player1Call + "-" + player2Call;
             }
         } else {
-            if (isScoreEqual()) return "Deuce";
+            if (isDraw()) return "Deuce";
             String leadingPlayer = player1Score > player2Score ? player1.getName() : player2.getName();
             boolean isLeadingPlayerOnAdvantage = ((player1Score-player2Score)*(player1Score-player2Score) == 1);
             if(isLeadingPlayerOnAdvantage) {
