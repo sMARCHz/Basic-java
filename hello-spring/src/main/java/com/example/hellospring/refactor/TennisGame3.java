@@ -21,13 +21,27 @@ public class TennisGame3 {
         return player1.getScore() == player2.getScore();
     }
 
+    public String getCall(int score) {
+        switch (score) {
+            case 0:
+                return "Love";
+            case 1:
+                return "Fifteen";
+            case 2:
+                return "Thirty";
+            case 3:
+                return "Forty";
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
+
     public String getScore() {
         int player1Score = player1.getScore();
         int player2Score = player2.getScore();
         if (isBeforeFirstDeuce()) {
-            String[] callList = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-            String player1Call = callList[player1Score];
-            String player2Call = callList[player2Score];
+            String player1Call = getCall(player1Score);
+            String player2Call = getCall(player2Score);
             if (isScoreEqual()) {
                 return player1Call + "-All";
             }
