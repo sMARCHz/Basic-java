@@ -21,8 +21,8 @@ public class TennisGame3 {
         return player1.getScore() == player2.getScore();
     }
 
-    public String getCall(int score) {
-        switch (score) {
+    public String getCall(int point) {
+        switch (point) {
             case 0:
                 return "Love";
             case 1:
@@ -32,7 +32,7 @@ public class TennisGame3 {
             case 3:
                 return "Forty";
             default:
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Invalid point. Point must be greater than 3.");
         }
     }
 
@@ -63,7 +63,9 @@ public class TennisGame3 {
     public void wonPoint(String playerName) {
         if (playerName.equals(player1.getName()))
             this.player1.wonPoint();
-        else
+        else if(playerName.equals(player2.getName()))
             this.player2.wonPoint();
+        else
+            throw new IllegalArgumentException("Player with this name doesn't exist in the game.");
     }
 }
