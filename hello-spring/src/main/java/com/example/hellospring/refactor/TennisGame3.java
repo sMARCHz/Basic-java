@@ -9,19 +9,40 @@ public class TennisGame3 {
         this.player2 = new Player(player2Name);
     }
 
+    public boolean isBeforeFirstDeuce() {
+        int player1Score = player1.getScore();
+        int player2Score = player2.getScore();
+        boolean isBothPlayerScoreLessThanFour = (player1Score<4 && player2Score<4);
+        boolean isSumOfPlayerScoreNotEqualSix = !(player1Score + player2Score == 6);
+        return isBothPlayerScoreLessThanFour && isSumOfPlayerScoreNotEqualSix;
+    }
+
+    public boolean isScoreEqual() {
+        return player1.getScore() == player2.getScore();
+    }
+
     public String getScore() {
         int player1Score = player1.getScore();
         int player2Score = player2.getScore();
-        if (player1Score < 4 && player2Score < 4 && !(player1Score + player2Score == 6)) {
+        if (isBeforeFirstDeuce()) {
             String[] callList = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
             String player1Call = callList[player1Score];
             String player2Call = callList[player2Score];
-            return (player1Score == player2Score) ? player1Call + "-All" : player1Call + "-" + player2Call;
+            if (isScoreEqual()) {
+                return player1Call + "-All";
+            }
+            else {
+                return player1Call + "-" + player2Call;
+            }
         } else {
-            if (player1Score == player2Score)
-                return "Deuce";
+            if (isScoreEqual()) return "Deuce";
             String leadingPlayer = player1Score > player2Score ? player1.getName() : player2.getName();
-            return ((player1Score-player2Score)*(player1Score-player2Score) == 1) ? "Advantage " + leadingPlayer : "Win for " + leadingPlayer;
+            boolean isSomeoneAdvantage = ((player1Score-player2Score)*(player1Score-player2Score) == 1);
+            if(isSomeoneAdvantage) {
+                return "Advantage " + leadingPlayer;
+            } else{
+                return "Win for " + leadingPlayer;
+            }
         }
     }
 
