@@ -51,8 +51,8 @@ public class TennisGame3 {
         } else {
             if (isScoreEqual()) return "Deuce";
             String leadingPlayer = player1Score > player2Score ? player1.getName() : player2.getName();
-            boolean isSomeoneAdvantage = ((player1Score-player2Score)*(player1Score-player2Score) == 1);
-            if(isSomeoneAdvantage) {
+            boolean isLeadingPlayerOnAdvantage = ((player1Score-player2Score)*(player1Score-player2Score) == 1);
+            if(isLeadingPlayerOnAdvantage) {
                 return "Advantage " + leadingPlayer;
             } else{
                 return "Win for " + leadingPlayer;
