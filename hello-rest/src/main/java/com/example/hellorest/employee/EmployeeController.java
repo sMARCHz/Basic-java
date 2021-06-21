@@ -1,10 +1,7 @@
 package com.example.hellorest.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class EmployeeController {
@@ -34,5 +31,10 @@ public class EmployeeController {
             System.out.println("Cannot convert to number");
         }
         return new EmployeeResponse(_id, "Nattanon", "Ch");
+    }
+
+    @PostMapping("/employee")
+    public EmployeeResponse createNewEmployee(@RequestBody EmployeeRequest request) {
+        return new EmployeeResponse(999, request.getFname(), request.getLname());
     }
 }
