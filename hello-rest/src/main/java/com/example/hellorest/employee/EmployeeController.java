@@ -22,7 +22,6 @@ public class EmployeeController {
         catch (NumberFormatException err) {
             System.out.println("Cannot convert to number");
         }
-        Random random = new Random();
         int number = random.nextInt(10);
         return new EmployeeResponse(_id, "Nattanon" + number , "Ch");
     }
