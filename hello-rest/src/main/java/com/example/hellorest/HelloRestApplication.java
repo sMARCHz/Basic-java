@@ -1,5 +1,6 @@
 package com.example.hellorest;
 
+import com.example.hellorest.employee.Demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -15,5 +16,11 @@ public class HelloRestApplication {
 		}
 		int count = context.getBeanDefinitionCount();
 		System.out.println(count); // 197
+
+		Demo demo1 = context.getBean(Demo.class);
+		demo1.setName("Demo1");
+		Demo demo2 = context.getBean(Demo.class);
+		System.out.println("Demo1 => " + demo1.getName());
+		System.out.println("Demo2 => " + demo2.getName());
 	}
 }
