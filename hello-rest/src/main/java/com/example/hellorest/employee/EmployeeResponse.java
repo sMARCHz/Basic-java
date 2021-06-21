@@ -22,9 +22,7 @@ public class EmployeeResponse {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EmployeeResponse that = (EmployeeResponse) o;
-        return id == that.id &&
-                Objects.equals(fname, that.fname) &&
-                Objects.equals(lname, that.lname);
+        return id == that.id && Objects.equals(fname, that.fname) && Objects.equals(lname, that.lname);
     }
 
     public int getId() {

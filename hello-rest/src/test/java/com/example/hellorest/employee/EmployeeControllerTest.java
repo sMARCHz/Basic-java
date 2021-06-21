@@ -4,9 +4,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class EmployeeControllerTest {
@@ -14,9 +17,14 @@ public class EmployeeControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    @MockBean
+    private MyRandom random;
+
     @Test
     public void callApiWithPathVariable() {
-        EmployeeResponse expected = new EmployeeResponse(123, "Nattanon", "Ch");
+        when(random.nextInt(anyInt())).thenReturn(5);
+
+        EmployeeResponse expected = new EmployeeResponse(123, "Nattanon5", "Ch");
         EmployeeResponse response
                 = restTemplate.getForObject("/employee/123", EmployeeResponse.class);
         assertEquals(123, response.getId());
