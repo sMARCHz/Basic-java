@@ -26,7 +26,7 @@ public class EmployeeControllerTest {
     }
 
     @Test
-    public void callApiWithREquestParameter() {
+    public void callApiWithRequestParameter() {
         EmployeeResponse response
                 = restTemplate.getForObject("/employee?id=999", EmployeeResponse.class);
         assertEquals(999, response.getId());
