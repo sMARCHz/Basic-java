@@ -7,7 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EmployeeController {
     @GetMapping("/employee/{id}")
-    public EmployeeResponse getEmployeeByID(@PathVariable int id) {
-        return new EmployeeResponse(id, "Nattanon", "Ch");
+    public EmployeeResponse getEmployeeByID(@PathVariable String id) {
+        int _id = 0;
+        try{
+            _id = Integer.parseInt(id);
+        }
+        catch (Exception err) {
+            System.out.println("Cannot convert to number");
+        }
+        return new EmployeeResponse(_id, "Nattanon", "Ch");
     }
 }
