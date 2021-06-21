@@ -12,7 +12,7 @@ public class EmployeeController {
         try{
             _id = Integer.parseInt(id);
         }
-        catch (Exception err) {
+        catch (NumberFormatException err) {
             System.out.println("Cannot convert to number");
         }
         return new EmployeeResponse(_id, "Nattanon", "Ch");
