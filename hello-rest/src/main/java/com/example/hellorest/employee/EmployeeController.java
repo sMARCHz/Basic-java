@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 @RestController
 public class EmployeeController {
     @GetMapping("/employee/{id}")
@@ -16,7 +18,9 @@ public class EmployeeController {
         catch (NumberFormatException err) {
             System.out.println("Cannot convert to number");
         }
-        return new EmployeeResponse(_id, "Nattanon", "Ch");
+        Random random = new Random();
+        int number = random.nextInt(10);
+        return new EmployeeResponse(_id, "Nattanon" + number , "Ch");
     }
 
     @GetMapping("/employee")
