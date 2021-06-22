@@ -41,4 +41,14 @@ public class EmployeeControllerTest {
         assertEquals("Nattanon", response.getFname());
         assertEquals("Ch", response.getLname());
     }
+
+    @Test
+    public void postApiTestWithRequestBody() {
+        EmployeeRequest request = new EmployeeRequest("Nattanon", "Ch");
+        EmployeeResponse response
+                = restTemplate.postForObject("/employee", request, EmployeeResponse.class);
+        assertEquals(999, response.getId());
+        assertEquals("Nattanon", response.getFname());
+        assertEquals("Ch", response.getLname());
+    }
 }
