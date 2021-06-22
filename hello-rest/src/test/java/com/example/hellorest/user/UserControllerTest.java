@@ -19,4 +19,9 @@ class UserControllerTest {
     public void getAllUserTest() {
 
     }
+
+    @Test
+    public void getUserByIDTest() {
+
+    }
 }

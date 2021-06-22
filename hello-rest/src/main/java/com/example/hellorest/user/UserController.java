@@ -2,6 +2,7 @@ package com.example.hellorest.user;
 
 import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +13,7 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    public static final List<UserResponse> usersList = new ArrayList<>(Arrays.asList(
+    private final List<UserResponse> usersList = new ArrayList<>(Arrays.asList(
             new UserResponse(1, "Leanne Graham", "Bret", "Sincere@april.biz"
                     , new Address("Kulas Light", "Apt. 556", "Gwenborough", "92998-3874"
                     , new Geo(-37.3159, 81.1496))
@@ -34,5 +35,15 @@ public class UserController {
     @GetMapping("/user")
     public List<UserResponse> getAllUsers() {
         return usersList;
+    }
+
+    @GetMapping("/user/{id}")
+    public UserResponse getUserByID(@PathVariable int id) {
+        for (UserResponse user : usersList) {
+            if(user.getId() == id) {
+                return user;
+            }
+        }
+        return null;
     }
 }
