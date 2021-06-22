@@ -32,6 +32,7 @@ class UserControllerTest {
 
     @Test
     public void getUserByIDTest() {
-        assertTrue(true);
+        UserResponse response = restTemplate.getForObject("/user/1", UserResponse.class);
+        assertEquals(expectedUserList.getUserByID(1), response);
     }
 }
