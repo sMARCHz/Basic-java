@@ -38,9 +38,15 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public UserResponse getUserByID(@PathVariable int id) {
+    public UserResponse getUserByID(@PathVariable String id) {
+        int _id = 0;
+        try {
+            _id = Integer.parseInt(id);
+        } catch (NumberFormatException err) {
+            System.out.println("Invalid ID.");
+        }
         for (UserResponse user : usersList) {
-            if(user.getId() == id) {
+            if(user.getId() == _id) {
                 return user;
             }
         }
