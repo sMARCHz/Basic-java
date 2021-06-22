@@ -1,5 +1,7 @@
 package com.example.hellorest.user;
 
+import java.util.Objects;
+
 public class Company {
     private String name;
     private String catchPhrases;
@@ -24,5 +26,13 @@ public class Company {
 
     public String getBs() {
         return bs;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Company company = (Company) o;
+        return Objects.equals(name, company.name) && Objects.equals(catchPhrases, company.catchPhrases) && Objects.equals(bs, company.bs);
     }
 }
