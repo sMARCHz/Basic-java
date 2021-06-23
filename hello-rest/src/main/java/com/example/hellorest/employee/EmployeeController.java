@@ -1,12 +1,18 @@
 package com.example.hellorest.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.Random;
 
 @RestController
 public class EmployeeController {
+
+    @Bean
+    public Random createNewRandom() {
+        return new Random();
+    }
 
     @Autowired
     private EmployeeService service;

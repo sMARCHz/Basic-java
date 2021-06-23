@@ -7,6 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
+import java.util.Random;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
@@ -21,7 +23,7 @@ public class EmployeeControllerTest {
     private EmployeeRepository repository;
 
     @MockBean
-    private MyRandom random;
+    private Random random;
 
     @Test
     public void callApiWithPathVariableAndDatabase() {

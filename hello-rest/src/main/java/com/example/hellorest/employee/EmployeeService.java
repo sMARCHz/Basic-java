@@ -4,12 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class EmployeeService {
 
     @Autowired
-    private MyRandom random;
+    private Random random;
 
     @Autowired
     private EmployeeRepository repository;
@@ -27,7 +28,7 @@ public class EmployeeService {
         return new EmployeeResponse();
     }
 
-    public void setRandom(MyRandom random) {
+    public void setRandom(Random random) {
         this.random = random;
     }
 

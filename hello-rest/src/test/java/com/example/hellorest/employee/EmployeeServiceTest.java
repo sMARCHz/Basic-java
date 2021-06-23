@@ -6,6 +6,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
@@ -14,7 +15,7 @@ import static org.mockito.Mockito.when;
 public class EmployeeServiceTest {
 
     @Mock
-    private MyRandom random;
+    private Random random;
 
     @Mock
     private EmployeeRepository repository;

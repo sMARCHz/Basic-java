@@ -7,6 +7,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
 import java.util.Optional;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -21,7 +22,7 @@ public class EmployeeMockBeanTest {
     private TestRestTemplate restTemplate;
 
     @MockBean
-    private MyRandom random;
+    private Random random;
 
     @MockBean
     private EmployeeRepository repository;
