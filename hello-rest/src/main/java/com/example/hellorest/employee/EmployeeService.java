@@ -1,9 +1,11 @@
 package com.example.hellorest.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class EmployeeService {
 
     @Autowired
