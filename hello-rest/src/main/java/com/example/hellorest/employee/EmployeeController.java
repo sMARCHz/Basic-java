@@ -8,6 +8,9 @@ public class EmployeeController {
     @Autowired
     private MyRandom random;
 
+    @Autowired
+    private EmployeeRepository repository;
+
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeByID(@PathVariable String id) {
         int _id = 0;
@@ -17,8 +20,10 @@ public class EmployeeController {
         catch (NumberFormatException err) {
             System.out.println("Cannot convert to number");
         }
-        int number = random.nextInt(10);
-        return new EmployeeResponse(_id, "Nattanon" + number , "Ch");
+//        int number = random.nextInt(10);
+        repository.save(new Employee("Nattanon", "Ch"));
+        Employee employee = repository.getById(_id);
+        return new EmployeeResponse(employee.getId(), employee.getFirstName(), employee.getLastName());
     }
 
     @GetMapping("/employee")
