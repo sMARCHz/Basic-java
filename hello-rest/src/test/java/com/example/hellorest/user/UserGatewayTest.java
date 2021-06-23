@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -15,8 +17,8 @@ public class UserGatewayTest {
 
     @Test
     public void callAPI() {
-        Users users = userGateway.getAllUsers();
-        assertEquals(10, users.getUsers().size());
+        List<UserModel> users = userGateway.getAllUsers();
+        assertEquals(10, users.size());
     }
 
     @Test
