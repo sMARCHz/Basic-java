@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class UserController {
+public class UserAssignmentController {
 
     @Autowired
     private UserList usersList;
 
-    @GetMapping("/user")
+    @GetMapping("/user/assignment")
     public List<UserResponse> getAllUsers() {
         return usersList.getUsersList();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/user/assignment/{id}")
     public UserResponse getUserByID(@PathVariable String id) {
         int _id = 0;
         try {
