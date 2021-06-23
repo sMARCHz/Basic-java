@@ -25,7 +25,7 @@ public class EmployeeService {
                     employee.getFirstName() + number,
                     employee.getLastName());
         }
-        return new EmployeeResponse();
+        throw new EmployeeNotFoundException();
     }
 
     public void setRandom(Random random) {
