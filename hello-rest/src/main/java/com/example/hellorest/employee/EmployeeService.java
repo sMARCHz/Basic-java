@@ -26,4 +26,12 @@ public class EmployeeService {
         }
         return new EmployeeResponse();
     }
+
+    public void setRandom(MyRandom random) {
+        this.random = random;
+    }
+
+    public void setRepository(EmployeeRepository repository) {
+        this.repository = repository;
+    }
 }
