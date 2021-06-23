@@ -24,14 +24,14 @@ class UserAssignmentControllerTest {
 
     @Test
     public void getAllUserTest() {
-        UserResponse[] response = restTemplate.getForObject("/user", UserResponse[].class);
+        UserResponse[] response = restTemplate.getForObject("/user/assignment", UserResponse[].class);
         List<UserResponse> actualResponse = Arrays.asList(response);
         assertEquals(expectedUserList.getUsersList(), actualResponse);
     }
 
     @Test
     public void getUserByIDTest() {
-        UserResponse response = restTemplate.getForObject("/user/1", UserResponse.class);
+        UserResponse response = restTemplate.getForObject("/user/assignment/1", UserResponse.class);
         assertEquals(expectedUserList.getUserByID(1), response);
     }
 }
