@@ -8,8 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -49,9 +48,8 @@ public class EmployeeServiceTest {
         service.setRandom(random);
         service.setRepository(repository);
 
-        EmployeeResponse result = service.process(100);
-        assertEquals(0, result.getId());
-        assertNull(result.getFname());
-        assertNull(result.getLname());
+        Exception exception = assertThrows(EmployeeNotFoundException.class, () ->
+                service.process(100));
+        assertEquals("Employee id 100 not found", exception.getMessage());
     }
 }

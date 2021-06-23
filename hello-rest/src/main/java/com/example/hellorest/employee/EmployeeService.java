@@ -25,7 +25,7 @@ public class EmployeeService {
                     employee.getFirstName() + number,
                     employee.getLastName());
         }
-        throw new EmployeeNotFoundException();
+        throw new EmployeeNotFoundException("Employee id " + id + " not found");
     }
 
     public void setRandom(Random random) {
