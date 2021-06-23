@@ -1,4 +1,4 @@
-package com.example.hellorest.user;
+package com.example.hellorest.userassignment;
 
 import java.util.Objects;
 

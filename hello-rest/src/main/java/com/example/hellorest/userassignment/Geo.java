@@ -1,6 +1,4 @@
-package com.example.hellorest.user;
-
-import java.util.Objects;
+package com.example.hellorest.userassignment;
 
 public class Geo {
     private double lat;
