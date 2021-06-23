@@ -14,7 +14,7 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void foundWithID1() {
-        Employee employee = new Employee("Nattanon from DB", "Ch from DB");
+        Employee employee = new Employee(1,"Nattanon from DB", "Ch from DB");
         repository.save(employee);
 
         Employee employee1 = repository.getById(1);

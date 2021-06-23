@@ -17,14 +17,19 @@ public class EmployeeControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    @Autowired
+    private EmployeeRepository repository;
+
     @MockBean
     private MyRandom random;
 
     @Test
-    public void callApiWithPathVariable() {
+    public void callApiWithPathVariableAndDatabase() {
         when(random.nextInt(anyInt())).thenReturn(5);
+        repository.save(new Employee(123, "Nattanon", "Ch"));
 
-        EmployeeResponse expected = new EmployeeResponse(123, "Nattanon5", "Ch");
+        EmployeeResponse expected
+                = new EmployeeResponse(123, "Nattanon5", "Ch");
         EmployeeResponse response
                 = restTemplate.getForObject("/employee/123", EmployeeResponse.class);
         assertEquals(123, response.getId());

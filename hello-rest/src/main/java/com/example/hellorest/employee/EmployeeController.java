@@ -21,11 +21,14 @@ public class EmployeeController {
         } catch (NumberFormatException err) {
             System.out.println("Cannot convert to number");
         }
-//        int number = random.nextInt(10);
+        int number = random.nextInt(10);
         Optional<Employee> result = repository.findById(_id);
         if (result.isPresent()) {
             Employee employee = result.get();
-            return new EmployeeResponse(employee.getId(), employee.getFirstName(), employee.getLastName());
+            return new EmployeeResponse(
+                    employee.getId(),
+                    employee.getFirstName() + number,
+                    employee.getLastName());
         }
         return new EmployeeResponse();
     }
