@@ -7,11 +7,9 @@ import java.util.Optional;
 
 @RestController
 public class EmployeeController {
-    @Autowired
-    private MyRandom random;
 
     @Autowired
-    private EmployeeRepository repository;
+    private EmployeeService service;
 
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeByID(@PathVariable String id) {
@@ -21,16 +19,8 @@ public class EmployeeController {
         } catch (NumberFormatException err) {
             System.out.println("Cannot convert to number");
         }
-        int number = random.nextInt(10);
-        Optional<Employee> result = repository.findById(_id);
-        if (result.isPresent()) {
-            Employee employee = result.get();
-            return new EmployeeResponse(
-                    employee.getId(),
-                    employee.getFirstName() + number,
-                    employee.getLastName());
-        }
-        return new EmployeeResponse();
+        EmployeeResponse response = service.process(_id);
+        return response;
     }
 
     @GetMapping("/employee")
